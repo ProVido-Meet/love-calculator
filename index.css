@@ -1,0 +1,28 @@
+#checkButton {
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#lovevalue {
+    padding: 10px;
+    border-radius: 15px;
+    background-color: silver;
+    font-weight: 600;
+}
+
+.card-header,
+.card-footer {
+    font-weight: 600
+}
+
+.dev-info {
+    width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+#getcard {
+    display: none;
+}

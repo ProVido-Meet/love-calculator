@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Love Calculator | Meuts</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+
+    <style>
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://images.pexels.com/photos/1028725/pexels-photo-1028725.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+        
+        header {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="card w-50 m-auto text-center ">
+            <div class="card-header bg-secondary text-white">❤️LOVE CALCULATOR❤️</div>
+            <div class="card-body">
+                <form class="form-inline w-75 m-auto">
+                    <div class="form-group">
+                        <input type="text" name="" class="form-control text-center" placeholder="Your Name" id="name">
+                    </div>
+                    <div class="pl-4 pr-4">
+                        <span> + </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="" class="form-control text-center" placeholder=" Love Name" id="lname">
+                    </div>
+                </form> <br>
+                <div class="w-70 m-auto">
+                    <button class="btn btn-success w-50" id="checkButton" onclick="checkloveper()"> Calculate </button>
+                </div>
+                <br>
+                <div>
+                    <p class="text-center m-auto" id="lovevalue"></p>
+                    <a href="get_card.html" target="_blank" rel="noopener noreferrer" id="getcard">Get your love card</a>
+                </div>
+            </div>
+            <div class="card-footer">
+                <p class="text-muted">Made with Neptune Technology and Meuts</p>
+            </div>
+        </div>
+        <center>
+            <div class="dev-info bg-white">
+                <h4>Developed by <strong>Gyanam</strong></h4>
+            </div>
+        </center>
+
+    </header>
+
+    <script>
+        function checkloveper() {
+
+            var name = document.getElementById('name').value;
+            var lname = document.getElementById('lname').value;
+
+            localStorage.setItem("name", name);
+            localStorage.setItem("lname", lname);
+
+            if (name == "") {
+                alert('Please enter your name');
+            } else if (name.length <= 2) {
+                alert('Min lenght is 3')
+            } else if (!isNaN(name)) {
+                alert('Numbers are not allowed');
+            } else if (lname == "") {
+                alert('Please enter your love name');
+            } else if (lname.length <= 2) {
+                alert('Min lenght is 3')
+            } else if (!isNaN(lname)) {
+                alert('Numbers are not allowed');
+            } else {
+                first_name = localStorage.getItem("name");
+                love_name = localStorage.getItem("lname");
+                var lovdata = Math.random() * 100;
+                lovdata = Math.floor(lovdata);
+                document.getElementById('lovevalue').innerHTML = "Your love percentage is " + lovdata + "%";
+                // document.getElementById("checkButton").style.backgroundColor = "rgb(255, 61, 61)";
+                document.getElementById('checkButton').innerHTML = first_name + " ❤️ " + love_name;
+                document.getElementById('getcard').style.display = "block";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
